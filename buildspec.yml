@@ -5,10 +5,16 @@ phases:
     commands:
       - printenv
       - rm -rf node_modules
+      - sudo yum update -y
+      - curl -fsSL https://rpm.nodesource.com/setup_14.x | sudo bash -
+      - sudo yum install -y nodejs
+      - node -v
+      - npm -v
+
       - npm install
   build:
     commands:
       - npm run build -prod
   post_build:
     commands:
-      - aws --region us-east-1<REGION> s3 sync ./dist/ s3://bucketlabforpipe/ --acl=public-read --delete
+      - aws --region us-east-1 <REGION> s3 sync ./dist/ s3:/// --acl=public-read --delete
