@@ -8,7 +8,8 @@ phases:
       - sudo apt update
       - sudo apt install nodejs -y
       - node -v
-      - npm install
+      - npm install --force
+
   build:
     commands:
       - npm run build -prod
