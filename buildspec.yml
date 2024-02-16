@@ -6,7 +6,7 @@ phases:
       - printenv
       - rm -rf node_modules
       - sudo apt update
-      - sudo apt install nodejs
+      - sudo apt install nodejs -y
       - node -v
       - npm install
   build:
