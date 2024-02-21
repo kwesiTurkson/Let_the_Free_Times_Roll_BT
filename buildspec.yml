@@ -1,35 +1,35 @@
 version: 0.1
 
-# phases:
-#   install:
-#     commands:
-#       - printenv
-#       - rm -rf node_modules
-#       - sudo apt update
-#       - sudo apt install nodejs -y
-#       - node -v
-#       - npm install --force
-
-#   build:
-#     commands:
-#       - npm run build -prod
-#   post_build:
-#     commands:
-#       - aws --region us-east-1 <REGION> s3 sync ./dist/ s3:/// --acl=public-read --delete
-
 phases:
   install:
-    runtime-versions:
-      nodejs:latest
-  pre_build:    
     commands:
-      - echo prebuild phase
+      - printenv
+      - rm -rf node_modules
+      - sudo apt update
+      - sudo apt install nodejs -y
+      - node -v
+      - npm install --force
 
   build:
     commands:
-      - echo build phase
-      - npm install
+      - npm run build -prod
   post_build:
     commands:
-    
       - aws --region us-east-1 <REGION> s3 sync ./dist/ s3://bucketforpipelinefresh/ --acl=public-read --delete
+
+# phases:
+#   install:
+#     runtime-versions:
+#       nodejs:latest
+#   pre_build:    
+#     commands:
+#       - echo prebuild phase
+
+#   build:
+#     commands:
+#       - echo build phase
+#       - npm install
+#   post_build:
+#     commands:
+    
+#       - aws --region us-east-1 <REGION> s3 sync ./dist/ s3://bucketforpipelinefresh/ --acl=public-read --delete
