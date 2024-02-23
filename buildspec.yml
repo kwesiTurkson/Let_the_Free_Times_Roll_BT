@@ -3,12 +3,9 @@ version: 0.1
 phases:
   install:
     commands:
-      - printenv
+     - printenv
       - rm -rf node_modules
-      - sudo apt update
-      - sudo apt install nodejs -y
-      - node -v
-      - npm install --force
+      - npm install
 
   build:
     commands:
