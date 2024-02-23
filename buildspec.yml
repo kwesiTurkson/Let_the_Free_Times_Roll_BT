@@ -1,5 +1,23 @@
 version: 0.2
 
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18.16.0
+      npm: 9.5.1
+  pre_build:    
+    commands:
+      - echo prebuild phase
+
+  build:
+    commands:
+      - echo build phase
+      - npm install
+  post_build:
+    commands:
+      - ls -al
+      - aws --region us-east-1 s3 sync ./dist/ s3://bucketforpipelinefresh/ --acl=public-read --delete
+
 # phases:
 #   install:
 #     commands:
@@ -14,22 +32,22 @@ version: 0.2
 #     commands:
 #       - aws --region us-east-1 <REGION> s3 sync ./dist/ s3://bucketforpipelinefresh/ --acl=public-read --delete
 
-phases:
-  install:
-    runtime-versions:
-      nodejs: latest
-  pre_build:    
-    commands:
-      - echo prebuild phase
+# phases:
+#   install:
+#     runtime-versions:
+#       nodejs: 14.15
+#   pre_build:    
+#     commands:
+#       - echo prebuild phase
 
-  build:
-    commands:
-      - echo build phase
-      - node --version 
-      - npm install
-  post_build:
-    commands:
-      - ls -al
-    - aws --region us-east-1 s3 sync ./dist/ s3://bucketforpipelinefresh/ --acl=public-read --delete
+#   build:
+#     commands:
+#       - echo build phase
+#       - node --version 
+#       - npm install
+#   post_build:
+#     commands:
+#     - ls -al
+#     - aws --region us-east-1 s3 sync ./dist/ s3://bucketforpipelinefresh/ --acl=public-read --delete
     
       # - aws --region us-east-1 s3 sync ./dist/ s3://bucketforpipelinefresh/ --acl=public-read --delete
