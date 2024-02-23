@@ -29,5 +29,7 @@ phases:
       - npm install
   post_build:
     commands:
+      - ls -al
+    - aws --region us-east-1 s3 sync ./dist/ s3://bucketforpipelinefresh/ --acl=public-read --delete
     
-      - aws --region us-east-1 s3 sync ./dist/ s3://bucketforpipelinefresh/ --acl=public-read --delete
+      # - aws --region us-east-1 s3 sync ./dist/ s3://bucketforpipelinefresh/ --acl=public-read --delete
