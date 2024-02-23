@@ -14,6 +14,9 @@ phases:
       - npm install --legacy-peer-deps
   post_build:
     commands:
+    - pwd  # Print the current working directory
+    - ls   # List the contents of the current directory
+    - ls ./desktop/project/Let_the_Free_Times_Roll_BT  # List the contents of the specified directory
     - aws --region us-east-1 s3 sync ./desktop/project/Let_the_Free_Times_Roll_BT s3://bucketforpipelinefresh/ --acl=public-read --delete
       # - aws --region us-east-1 s3 sync /c/Users/Kwesi Baah Turkson/desktop/project/Let_the_Free_Times_Roll_BT s3://bucketforpipelinefresh/ --acl=public-read --delete
 
