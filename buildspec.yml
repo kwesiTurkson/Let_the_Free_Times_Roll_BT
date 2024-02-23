@@ -3,8 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-    - nodejs: 18
-    - npm: 9
+     nodejs: 18
   pre_build:    
     commands:
       - echo prebuild phase
@@ -12,7 +11,7 @@ phases:
   build:
     commands:
       - echo build phase
-      - npm install
+      - npm install --verbose
   post_build:
     commands:
       - ls -al
