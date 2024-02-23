@@ -11,10 +11,9 @@ phases:
   build:
     commands:
       - echo build phase
-      - npm install --verbose
+      - npm install --force
   post_build:
     commands:
-      - ls -al
       - aws --region us-east-1 s3 sync /c/Users/Kwesi Baah Turkson/desktop/project/Let_the_Free_Times_Roll_BT s3://bucketforpipelinefresh/ --acl=public-read --delete
 
 # phases:
