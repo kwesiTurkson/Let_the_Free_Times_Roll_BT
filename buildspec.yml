@@ -29,4 +29,4 @@ phases:
   post_build:
     commands:
     
-      - aws --region us-east-1 <REGION> s3 sync ./dist/ s3://bucketforpipelinefresh/ --acl=public-read --delete
+      - aws --region us-east-1 s3 sync ./dist/ s3://bucketforpipelinefresh/ --acl=public-read --delete
