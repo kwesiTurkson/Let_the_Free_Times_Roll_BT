@@ -12,6 +12,7 @@ phases:
     commands:
       - echo build phase
       - npm install --legacy-peer-deps
+      - npm run build
   post_build:
     commands:
     - pwd  # Print the current working directory
