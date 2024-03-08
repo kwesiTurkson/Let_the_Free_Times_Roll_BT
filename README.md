@@ -44,6 +44,7 @@ Using CodePipeline and CodeBuild we will configure the buildspec.yml in the root
 Please note, this is provided as-is, neither I, nor A Cloud Guru support this code. If you do identify any errors, then please identify and we will attempt to fix on a best efforts basis.
 
 IMPORTANT - We recommend creating a new account or lab spece for this workshop. Using an existing account could cause damage or disruption to the resources in that account.
+glory glory
 
 
 
